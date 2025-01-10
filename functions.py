@@ -34,15 +34,15 @@ def averageEntropy(entropies):
 
 
 def changeTable(array, col_number, attribute):
-    # Validate inputs
+    
     if not array or col_number < 0 or col_number >= len(array[0][1]):
         raise ValueError("Invalid array or column number")
 
-    # Initialize the new array with the header
+    
     new_header = [col for i, col in enumerate(array[0][1]) if i != col_number]
     newarr = [[array[0][0], new_header]]
 
-    # Process rows based on the attribute condition
+    
     for row in array[1:]:
         if row[1][col_number] == attribute:
             filtered_row = [col for i, col in enumerate(row[1]) if i != col_number]
