@@ -90,7 +90,7 @@ def findNODE(array):
         avg_entropy = averageEntropy(entropies)
         IGs.append(overall_entropy - avg_entropy)
         avgs.append(avg_entropy)
-    
+    print("Information Gains:",IGs)
     
 
     best_feature_index = maxindex(IGs)

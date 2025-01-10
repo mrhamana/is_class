@@ -1,23 +1,40 @@
 from functions import *
-data=[["Outputs",["Outlook","Tempreture","Humidity","Wind","Hornyness"]],
-    ['No', ['Sunny', 'Hot', 'High', 'Weak',"Yes"]],
-    ['No', ['Sunny', 'Hot', 'High', 'Strong',"Mild"]],
-    ['Yes', ['Overcast', 'Hot', 'High', 'Weak',"No"]],
-    ['Yes', ['Rain', 'Mild', 'High', 'Weak',"Mild"]],
-    ['Yes', ['Rain', 'Cool', 'Normal', 'Weak','Yes']],
-    ['No', ['Rain', 'Cool', 'Normal', 'Strong',"Yes"]],
-    ['Yes', ['Overcast', 'Cool', 'Normal', 'Strong',"Mild"]],
-    ['No', ['Sunny', 'Mild', 'High', 'Weak',"No"]],
-    ['Yes', ['Sunny', 'Cool', 'Normal', 'Weak',"No"]],
-    ['Yes', ['Rain', 'Mild', 'Normal', 'Weak',"No"]],
-    ['Yes', ['Sunny', 'Mild', 'Normal', 'Strong',"No"]],
-    ['Yes', ['Overcast', 'Mild', 'High', 'Strong',"No"]],
-    ['Yes', ['Overcast', 'Hot', 'Normal', 'Weak',"Mild"]],
-    ['No', ['Rain', 'Mild', 'High', 'Strong',"Yes"]]
+
+data = [
+    ["Outputs", ["Outlook", "Temperature", "Humidity", "Wind", "Hornyness", "Mood", "Time of Day", "Activity Level"]],
+    ['No', ['Sunny', 'Hot', 'High', 'Weak', "Yes", "Happy", "Morning", "High"]],
+    ['No', ['Sunny', 'Hot', 'High', 'Strong', "Yes", "Neutral", "Afternoon", "Medium"]],
+    ['Yes', ['Overcast', 'Hot', 'High', 'Weak', "No", "Grumpy", "Morning", "Low"]],
+    ['Yes', ['Rain', 'Mild', 'High', 'Weak', "Yes", "Happy", "Evening", "Medium"]],
+    ['Yes', ['Rain', 'Cool', 'Normal', 'Weak', "Yes", "Neutral", "Morning", "High"]],
+    ['No', ['Rain', 'Cool', 'Normal', 'Strong', "Yes", "Grumpy", "Afternoon", "Low"]],
+    ['Yes', ['Overcast', 'Cool', 'Normal', 'Strong', "No", "Happy", "Evening", "Medium"]],
+    ['No', ['Sunny', 'Mild', 'High', 'Weak', "No", "Neutral", "Morning", "Medium"]],
+    ['Yes', ['Sunny', 'Cool', 'Normal', 'Weak', "No", "Happy", "Afternoon", "High"]],
+    ['Yes', ['Rain', 'Mild', 'Normal', 'Weak', "No", "Neutral", "Morning", "Low"]],
+    ['Yes', ['Sunny', 'Mild', 'Normal', 'Strong', "Yes", "Grumpy", "Evening", "Medium"]],
+    ['Yes', ['Overcast', 'Mild', 'High', 'Strong', "No", "Happy", "Morning", "High"]],
+    ['Yes', ['Overcast', 'Hot', 'Normal', 'Weak', "Yes", "Neutral", "Afternoon", "Medium"]],
+    ['No', ['Rain', 'Mild', 'High', 'Strong', "Yes", "Happy", "Evening", "Low"]],
+    ['No', ['Sunny', 'Hot', 'High', 'Weak', "No", "Grumpy", "Morning", "Medium"]],
+    ['Yes', ['Overcast', 'Mild', 'Normal', 'Weak', "Yes", "Neutral", "Evening", "High"]],
+    ['No', ['Rain', 'Hot', 'High', 'Strong', "Yes", "Happy", "Afternoon", "Medium"]],
+    ['Yes', ['Rain', 'Cool', 'Normal', 'Weak', "No", "Neutral", "Morning", "Low"]],
+    ['Yes', ['Sunny', 'Cool', 'High', 'Weak', "Yes", "Happy", "Evening", "High"]],
+    ['No', ['Sunny', 'Hot', 'Normal', 'Strong', "No", "Grumpy", "Morning", "Medium"]],
+    ['Yes', ['Overcast', 'Cool', 'High', 'Weak', "Yes", "Neutral", "Afternoon", "Low"]],
+    ['Yes', ['Rain', 'Mild', 'High', 'Weak', "Yes", "Happy", "Evening", "Medium"]],
+    ['No', ['Rain', 'Hot', 'High', 'Strong', "Yes", "Grumpy", "Afternoon", "Low"]],
+    ['Yes', ['Overcast', 'Hot', 'Normal', 'Weak', "Yes", "Happy", "Morning", "High"]],
+    ['No', ['Sunny', 'Mild', 'High', 'Strong', "Yes", "Neutral", "Evening", "Medium"]],
+    ['Yes', ['Rain', 'Cool', 'High', 'Weak', "No", "Neutral", "Morning", "Low"]],
+    ['Yes', ['Overcast', 'Cool', 'Normal', 'Weak', "No", "Happy", "Afternoon", "High"]],
+    ['No', ['Sunny', 'Hot', 'High', 'Strong', "Yes", "Grumpy", "Morning", "Medium"]],
+    ['Yes', ['Rain', 'Mild', 'Normal', 'Weak', "Yes", "Neutral", "Evening", "Medium"]],
+    ['Yes', ['Sunny', 'Cool', 'Normal', 'Weak', "No", "Happy", "Morning", "High"]],
+    ['No', ['Rain', 'Cool', 'High', 'Strong', "Yes", "Grumpy", "Afternoon", "Low"]],
+    ['Yes', ['Overcast', 'Mild', 'Normal', 'Strong', "No", "Happy", "Evening", "Medium"]],
 ]
 
-newdata=changeTable(data,0,'Sunny')
-for i in newdata:
-    print(i)
-    
-print(findNODE(newdata))
+
+print(findNODE(data))
