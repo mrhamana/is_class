@@ -33,29 +33,24 @@ def averageEntropy(entropies):
     return avg
 
 
-def changeTable(array,col_number,attribute):
-    newarr=[[array[0][0]]]
-    
-    for  k in range(len(array[0][1])):
-        temp=[]
-        if not k==col_number:
-            temp.append(array[0][1][k])
-        else:
-            continue
-        
-        newarr[0].append(temp)
-        
-    
-    for i in range(1,len(array)):
-        if array[i][1][col_number]==attribute:
-            temp=[]
-            for j in range(len(array[0][1])):
-                if j!=col_number:
-                    temp.append(array[i][1][j])
-            
-            newarr.append([array[i][0],temp])
-    
+def changeTable(array, col_number, attribute):
+    # Validate inputs
+    if not array or col_number < 0 or col_number >= len(array[0][1]):
+        raise ValueError("Invalid array or column number")
+
+    # Initialize the new array with the header
+    new_header = [col for i, col in enumerate(array[0][1]) if i != col_number]
+    newarr = [[array[0][0], new_header]]
+
+    # Process rows based on the attribute condition
+    for row in array[1:]:
+        if row[1][col_number] == attribute:
+            filtered_row = [col for i, col in enumerate(row[1]) if i != col_number]
+            newarr.append([row[0], filtered_row])
+
     return newarr
+
+
 
 
 def list_branches(array,column_number): # Tells the types of features there are 
@@ -77,9 +72,6 @@ def listoutputs(array):
 
 def findNODE(array):
    
-    if not array or len(array) < 2 or not array[0][1]:
-        raise ValueError("There's no array , dummy dummy dumb dumb ")
-
     overall_entropy = Entropy(listoutputs(array))
     if overall_entropy==0:
         return array[1][0]
