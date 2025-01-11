@@ -37,4 +37,3 @@ data = [
 ]
 
 
-print(findNODE(data))
