@@ -71,7 +71,9 @@ def listoutputs(array):
     return list(output_counts.values())
 
 def findNODE(array):
-   
+    
+    if len(array)==1:
+        return None
     overall_entropy = Entropy(listoutputs(array))
     if overall_entropy==0:
         return array[1][0]
