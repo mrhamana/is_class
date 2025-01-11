@@ -39,7 +39,3 @@ def build_decision_tree(array, node=None):
 
     return node
 
-
-node=build_decision_tree(data)
-
-print(node.index[0].val)
