@@ -51,15 +51,6 @@ def changeTable(array, col_number, attribute):
     return newarr
 
 
-
-
-def list_branches(array,column_number): # Tells the types of features there are 
-    branch=set()
-    for i in range(1,len(array)):
-        branch.add(array[i][1][column_number])
-        
-    return list(branch)
-
 def listoutputs(array):
     
     output_counts = {}
@@ -70,19 +61,31 @@ def listoutputs(array):
 
     return list(output_counts.values())
 
-def findNODE(array):
+def list_branches(array, column_number):
+    """Returns the unique attributes of a given column in the array."""
+    if not isinstance(column_number, int) or column_number < 0 or column_number >= len(array[0][1]):
+        raise ValueError(f"Invalid column number: {column_number}")
     
-    if len(array)==1:
-        return None
-    overall_entropy = Entropy(listoutputs(array))
-    if overall_entropy==0:
-        return array[1][0]
-    IGs = []
-    avgs=[]
+    branch = set()
+    for i in range(1, len(array)):
+        if column_number >= len(array[i][1]):
+            raise ValueError(f"Row {i} does not have column {column_number}")
+        branch.add(array[i][1][column_number])
+    return list(branch)
 
+
+def findNODE(array):
+    """Finds the best feature (node) to split the dataset."""
+    if not array or len(array) < 2 or not isinstance(array[0][1], list):
+        raise ValueError("Invalid array structure")
+    
+    overall_entropy = Entropy(listoutputs(array))
+    if overall_entropy == 0:
+        return [array[1][0], None] 
+
+    IGs = []
     for feature_index in range(len(array[0][1])):
         entropies = []
-
         for branch in list_branches(array, feature_index):
             subset = changeTable(array, feature_index, branch)
             outputs = listoutputs(subset)
@@ -91,9 +94,6 @@ def findNODE(array):
 
         avg_entropy = averageEntropy(entropies)
         IGs.append(overall_entropy - avg_entropy)
-        avgs.append(avg_entropy)
-    print("Information Gains:",IGs)
-    
 
     best_feature_index = maxindex(IGs)
     best_feature_name = array[0][1][best_feature_index]
